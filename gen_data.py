@@ -2,16 +2,19 @@ import csv
 import numpy as np
 
 def unknown_function(x):
+    # Fonction cible qui genere y a partir de x
     return 10 * x +10
 
 tab_x = np.arange(-2000,2000, 1)
 tab_y = np.zeros(len(tab_x))
 
 if __name__ == "__main__":
+    # Construit tab_y en appliquant la fonction sur chaque x
     for i, x in enumerate(tab_x):
         tab_y[i] = unknown_function(x)
     print(tab_y)
 
+    # Sauvegarde les donnees en CSV pour l'etape d'entrainement
     with open("data.csv", mode = "w", newline ="") as  file:
         writer = csv.writer(file)
         writer.writerow(["x","y"])
